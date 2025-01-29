@@ -62,6 +62,12 @@ class Movie(models.Model):
     description = models.TextField()
     rating = models.DecimalField(max_digits=3, decimal_places=2)
     # poster = models.ImageField(upload_to='posters/') # Cannot use ImageField because Pillow is not installed
+    def __str__(self):
+        return self.title #not sure how to call __str__ but hey this makes sense
+        # I wonder is it basically toString() in java?
+    def old_movie(self):
+        return self.year < 2005 #okay I think I'm understanding
+        # they make functions lowercase in python?
 
     @admin.display(
         #lets show something only admin should see
