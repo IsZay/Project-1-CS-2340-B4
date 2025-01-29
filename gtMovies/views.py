@@ -35,3 +35,5 @@ def user_login(request):
     return render(request, 'gtMovies/login.html', {'form': form})
 #Chat says that django has a default ?user_login? or somn, but i added this anyway
 # so far the code doesn't break
+
+
