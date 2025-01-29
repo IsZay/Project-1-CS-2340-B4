@@ -23,4 +23,9 @@ from django.urls import path,include
 urlpatterns = [
     path("gtMovies/", include("gtMovies.urls")),
     path('admin/', admin.site.urls),
+    # path('gtMovies/', include('gtMovies.urls')),
 ]
+# added the last one, now it finally broke
+# okay it looks like its working again
+
+

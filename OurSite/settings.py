@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gtMovies.apps.GtmoviesConfig',
+    # 'django.contrib.auth.models' brakes the code as well
+    # 'gtMovies' brakes the code
 ]
 
 MIDDLEWARE = [
@@ -100,6 +102,27 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# THIS IS NOW ADDING Django Authentication for Step 8 from Chat
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+# now run these 3 commands! in terminal obv
+# python manage.py makemigrations
+# python manage.py migrate
+# python manage.py runserver
+# python manage.py migrate
+# python manage.py runserver
+#
+# Okay now after doing all of that, it turns out I have two gtMovies/ urls!
+# I bet that is what I have to change in url really fast
+# I hope this works
+
+
+
+
+
+
 
 
 # Internationalization
