@@ -21,8 +21,9 @@ from django.urls import path,include
 
 
 urlpatterns = [
-    path("gtMovies/", include("gtMovies.urls")),
-    path('admin/', admin.site.urls),
+    path("gtMovies/", include("gtMovies.urls")), # all of the urls in gtMovies.urls are in our entire website
+    # gtMovies is just an app within our website
+    path('admin/', admin.site.urls), #the og admin site
     # path('gtMovies/', include('gtMovies.urls')),
 ]
 # added the last one, now it finally broke
