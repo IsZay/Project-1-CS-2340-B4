@@ -11,6 +11,11 @@ from django.db import models
 
 
 # Create your models here.
+# models are essentially the objects that we are going to continue using throughout the project
+# like the Movie
+# and maybe have the MoviePoster be a separate class if necessary
+# searchRequests might have to be a Model. Maybe we keep a search history with it?
+# I don't know what else
 
 import datetime
 
@@ -74,3 +79,15 @@ class Movie(models.Model):
 #         return self.title
 
 #Alr it finishe
+
+# '''
+# I know my notes are everywhere. What I did is create a Movie class (much like the Question class in our intro to Django)
+# this is going to let us have multiple fields that people can search by? Or something?
+# As we go through all of this code we are going to have to appropriately show what we named each variable and functions
+# or rather what ChatGPT is naming the variables
+# Also, we need our index to actually be where our movives are displayed at first
+# we then will have  the login and register button in the top right
+# and then the search bar right underneath it, (or in the Top Middle)
+# We should have the image show by doing that ImageField I wrote before in the right function
+# '''
+#
