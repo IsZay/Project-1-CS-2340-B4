@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 #https://docs.djangoproject.com/en/5.1/
-# Maybe want to go ahead and read Seetings too
+# Maybe want to go ahead and read Settings too
 # the apps.py is basically what our app looks like,
 # an app goes in a website, but an app is not the website
 # you can have another app say MusicBuyer, which would have its own page like

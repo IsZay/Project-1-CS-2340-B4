@@ -14,7 +14,7 @@ from django.contrib.auth.views import LogoutView
 
 
 urlpatterns = [
-    path("", views.index, name="index"), #this should have all of our movie lists together, then have a login button in the top right and a register button.
+    path("", views.index, name="index"), # this should have all of our movie lists together, then have a login button in the top right and a register button.
     # we can have a login button, and there it has a "register here" in there like most websites, which wouldn't be hard to change the path underneath as you'll see ***
     #'login/register' actually that doesn't make sense
     path('register/', register, name='register'),
