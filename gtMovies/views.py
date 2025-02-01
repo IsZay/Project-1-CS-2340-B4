@@ -27,7 +27,7 @@ def register(request):
 
 # observe this last line. We haven't made gtMovies.register.html yet. This will be done later
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -38,12 +38,16 @@ def user_login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')  # Redirect to home page after successful login
+            return redirect('index')  # Redirect to home page after successful login
     else:
         form = AuthenticationForm()
     return render(request, 'gtMovies/login.html', {'form': form})
 #Chat says that django has a default ?user_login? or somn, but i added this anyway
 # so far the code doesn't break
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')  # Redirect to login page
 
 
 # '''
