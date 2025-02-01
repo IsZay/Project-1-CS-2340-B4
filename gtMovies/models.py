@@ -57,7 +57,7 @@ from django.contrib import admin
 class Movie(models.Model):
     title = models.CharField(max_length=200)
     year = models.IntegerField()
-    yearDatetime = models.DateTimeField("Year Published")
+    price = models.DecimalField(max_digits = 8, decimal_places = 2)
     director = models.CharField(max_length=200)
     genre = models.CharField(max_length=200)
     description = models.TextField()
@@ -79,14 +79,11 @@ class Movie(models.Model):
 
     def old_movie(self):
         now = timezone.now()
-        return now - datetime.timedelta(weeks=(52*4)) <= self.yearDatetime <= now # about 4 years ago, unless I messed up my implementation
-        # I'm just trying to see why we overloaded this method after @admin.display before?
-        # does it never call the first method?
+        return now > datetime.datetime(year=2025, month = 1, day = 1)
 #
 # def __str__(self):
 #         return self.title
 
-#Alr it finishe
 
 # '''
 # I know my notes are everywhere. What I did is create a Movie class (much like the Question class in our intro to Django)
