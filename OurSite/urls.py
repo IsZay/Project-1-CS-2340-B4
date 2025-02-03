@@ -23,6 +23,7 @@ from django.conf import settings
 
 
 urlpatterns = [
+    path('', include('home.urls')),
     path("accounts/", include("accounts.urls")),
     # will change this to accounts
     path('admin/', admin.site.urls), #the og admin site

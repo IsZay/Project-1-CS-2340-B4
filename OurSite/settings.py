@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home',
     'accounts',
     'movies'
     # 'django.contrib.auth.models' brakes the code as well
@@ -59,8 +60,9 @@ ROOT_URLCONF = 'OurSite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS':
+        # may have to add [BASE_DIR / 'templates'], back
+        [os.path.join(BASE_DIR, 'OurSite/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -150,7 +152,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "Oursite/static",
+    BASE_DIR / "OurSite/static",
 ]
 
 
