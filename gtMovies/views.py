@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.shortcuts import render, redirect
 
-from gtMovies.models import Movie
+# from gtMovies.models import Movie
 
 
 # Create your views here.
@@ -13,19 +13,22 @@ from gtMovies.models import Movie
 # a pretty convienient name
 
 def index(request):
-    template_data = {}
-    template_data['title'] = 'Movies'
-    template_data['movies'] = Movie.objects.all()
-    return render(request, 'movies/index.html',
-                  {'template_data': template_data})
+    return HttpResponse("Hello, world. You're at the index.")
 
-def show(request, id):
-    movie = Movie.objects.get(id=id)
-    template_data = {}
-    template_data['title'] = movie.name
-    template_data['movie'] = movie
-    return render(request, 'movies/show.html',
-                  {'template_data': template_data})
+# def index(request):
+#     template_data = {}
+#     template_data['title'] = 'Movies'
+#     template_data['movies'] = Movie.objects.all()
+#     return render(request, 'movies/index.html',
+#                   {'template_data': template_data})
+
+# def show(request, id):
+#     movie = Movie.objects.get(id=id)
+#     template_data = {}
+#     template_data['title'] = movie.name
+#     template_data['movie'] = movie
+#     return render(request, 'movies/show.html',
+#                   {'template_data': template_data})
                   
 def register(request):
     if request.method == "POST":

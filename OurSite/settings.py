@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gtMovies.apps.GtmoviesConfig',
+    'gtMovies',
     'movies'
     # 'django.contrib.auth.models' brakes the code as well
     # 'gtMovies' brakes the code

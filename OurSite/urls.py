@@ -23,8 +23,8 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path("gtMovies/", include("gtMovies.urls")), # all of the urls in gtMovies.urls are in our entire website
-    # gtMovies is just an app within our website
+    path("gtMovies/", include("gtMovies.urls")),
+    # will change this to accounts
     path('admin/', admin.site.urls), #the og admin site
     # path('gtMovies/', include('gtMovies.urls')),
     path('movies/', include('movies.urls')),
