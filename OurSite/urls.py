@@ -24,7 +24,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('home.urls')),
-    path("accounts/", include("accounts.urls")),
+    path("accounts/", include("accounts.urls")),  # TODO WHICH ONE
+    # path('accounts/', include(('accounts.urls', 'accounts'), namespace='accounts')),
+
     # will change this to accounts
     path('admin/', admin.site.urls), #the og admin site
     # path('accounts/', include('accounts.urls')),

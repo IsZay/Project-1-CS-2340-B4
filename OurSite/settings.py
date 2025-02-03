@@ -63,6 +63,7 @@ TEMPLATES = [
         'DIRS':
         # may have to add [BASE_DIR / 'templates'], back
         [os.path.join(BASE_DIR, 'OurSite/templates')],
+        #[BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
