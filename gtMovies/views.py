@@ -5,14 +5,12 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.shortcuts import render, redirect
 
+from gtMovies.models import Movie
+
 
 # Create your views here.
 # Our views page actually shows what the consumer is viewing
 # a pretty convienient name
-def index(request):
-    return HttpResponse("Hello, world. You're at the gtMovies index.")
-
-
 
 def index(request):
     template_data = {}
