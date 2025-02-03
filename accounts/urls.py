@@ -12,14 +12,14 @@ from django.urls import path
 # the last is basically a field that allow us to see where we are in the website
 # name isn't the only thing we can add
 
-app_name = 'accounts'  # This sets the namespace for this app
+# app_name = 'accounts'  # This sets the namespace for this app
 
 urlpatterns = [
     path('', views.index, name='index'), # this should have all of our movie lists together, then have a login button in the top right and a register button.
     # we can have a login button, and there it has a "register here" in there like most websites, which wouldn't be hard to change the path underneath as you'll see ***
     #'login/register' actually that doesn't make sense
-    path('signup/', views.signup, name='signup'),
-    # path('login/', user_login, name='login'),
+    path('signup/', views.signup, name='accounts.signup'),
+    path('login/', views.login, name='accounts.login'),
     # path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     
 ]
