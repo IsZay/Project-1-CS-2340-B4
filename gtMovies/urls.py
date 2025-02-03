@@ -21,16 +21,3 @@ urlpatterns = [
     path('login/', user_login, name='login'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
 ]
-
-# added the final 3 paths. It hasn't broke yet!!
-# '''
-# I know my notes are everywhere. What I did is create a Movie class (much like the Question class in our intro to Django)
-# this is going to let us have multiple fields that people can search by? Or something?
-# As we go through all of this code we are going to have to appropriately show what we named each variable and functions
-# or rather what ChatGPT is naming the variables
-# Also, we need our index to actually be where our movives are displayed at first
-# we then will have  the login and register button in the top right
-# and then the search bar right underneath it, (or in the Top Middle)
-# We should have the image show by doing that ImageField I wrote before in the right function
-# '''
-#
