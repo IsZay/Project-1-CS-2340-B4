@@ -20,6 +20,6 @@ urlpatterns = [
     #'login/register' actually that doesn't make sense
     path('signup/', views.signup, name='accounts.signup'),
     path('login/', views.login, name='accounts.login'),
-    # path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
-    
+    path('logout/', views.logout, name='accounts.logout'),
+
 ]
