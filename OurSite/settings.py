@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'movies'
     # 'django.contrib.auth.models' brakes the code as well
+    # 'django.contrib.auth.models' brakes the code as well
     # 'accounts' brakes the code
 ]
 
@@ -153,7 +154,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "OurSite/static",
+    BASE_DIR / 'OurSite/static',
 ]
 
 

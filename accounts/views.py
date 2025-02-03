@@ -72,22 +72,22 @@ def signup(request):
 
 
 
-
-def user_login(request):
-    if request.method == "POST":
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('index')  # Redirect to home page after successful login
-    else:
-        form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form': form})
-
-
-def logout_view(request):
-    logout(request)
-    return redirect('login')  # Redirect to login page
+#
+# def user_login(request):
+#     if request.method == "POST":
+#         form = AuthenticationForm(data=request.POST)
+#         if form.is_valid():
+#             user = form.get_user()
+#             login(request, user)
+#             return redirect('index')  # Redirect to home page after successful login
+#     else:
+#         form = AuthenticationForm()
+#     return render(request, 'accounts/login.html', {'form': form})
+#
+#
+# def logout_view(request):
+#     logout(request)
+#     return redirect('login')  # Redirect to login page
 
 
 # '''
