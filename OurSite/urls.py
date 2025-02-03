@@ -17,7 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -25,8 +27,10 @@ urlpatterns = [
     # gtMovies is just an app within our website
     path('admin/', admin.site.urls), #the og admin site
     # path('gtMovies/', include('gtMovies.urls')),
+    path('movies/', include('movies.urls')),
 ]
 # added the last one, now it finally broke
 # okay it looks like its working again
 
-
+urlpatterns += static(settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT)

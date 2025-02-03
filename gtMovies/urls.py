@@ -20,6 +20,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', user_login, name='login'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    
 ]
 
 # added the final 3 paths. It hasn't broke yet!!
