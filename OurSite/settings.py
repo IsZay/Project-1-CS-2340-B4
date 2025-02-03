@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gtMovies.apps.GtmoviesConfig',
+    'home',
+    'accounts',
     'movies'
     # 'django.contrib.auth.models' brakes the code as well
-    # 'gtMovies' brakes the code
+    # 'django.contrib.auth.models' brakes the code as well
+    # 'accounts' brakes the code
 ]
 
 MIDDLEWARE = [
@@ -59,8 +61,10 @@ ROOT_URLCONF = 'OurSite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS':
+        # may have to add [BASE_DIR / 'templates'], back
+        [os.path.join(BASE_DIR, 'OurSite/templates')],
+        #[BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -116,7 +120,7 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 # python manage.py migrate
 # python manage.py runserver
 #
-# Okay now after doing all of that, it turns out I have two gtMovies/ urls!
+# Okay now after doing all of that, it turns out I have two accounts/ urls!
 # I bet that is what I have to change in url really fast
 # I hope this works
 
@@ -150,7 +154,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "Oursite/static",
+    BASE_DIR / 'OurSite/static',
 ]
 
 
