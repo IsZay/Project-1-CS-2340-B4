@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django.shortcuts import render, redirect
 
-# from gtMovies.models import Movie
+# from accounts.models import Movie
 
 
 # Create your views here.
@@ -38,7 +38,7 @@ def register(request):
             return redirect('login')  # Redirect to login page after successful registration
     else:
         form = UserCreationForm()
-    return render(request, 'gtMovies/register.html', {'form': form})
+    return render(request, 'accounts/register.html', {'form': form})
 
 
 
@@ -54,7 +54,7 @@ def user_login(request):
             return redirect('index')  # Redirect to home page after successful login
     else:
         form = AuthenticationForm()
-    return render(request, 'gtMovies/login.html', {'form': form})
+    return render(request, 'accounts/login.html', {'form': form})
 
 
 def logout_view(request):

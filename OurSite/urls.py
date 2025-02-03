@@ -23,10 +23,10 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path("gtMovies/", include("gtMovies.urls")),
+    path("accounts/", include("accounts.urls")),
     # will change this to accounts
     path('admin/', admin.site.urls), #the og admin site
-    # path('gtMovies/', include('gtMovies.urls')),
+    # path('accounts/', include('accounts.urls')),
     path('movies/', include('movies.urls')),
 ]
 # added the last one, now it finally broke

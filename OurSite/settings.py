@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gtMovies',
+    'accounts',
     'movies'
     # 'django.contrib.auth.models' brakes the code as well
-    # 'gtMovies' brakes the code
+    # 'accounts' brakes the code
 ]
 
 MIDDLEWARE = [
@@ -116,7 +116,7 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 # python manage.py migrate
 # python manage.py runserver
 #
-# Okay now after doing all of that, it turns out I have two gtMovies/ urls!
+# Okay now after doing all of that, it turns out I have two accounts/ urls!
 # I bet that is what I have to change in url really fast
 # I hope this works
 

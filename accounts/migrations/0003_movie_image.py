@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('gtMovies', '0002_alter_movie_price'),
+        ('accounts', '0002_alter_movie_price'),
     ]
 
     operations = [
