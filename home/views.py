@@ -10,4 +10,4 @@ def index(request):
     return render(request, 'home/index.html', {
         'template_data': template_data})
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'home/about.html')
