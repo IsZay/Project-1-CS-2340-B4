@@ -9,10 +9,13 @@ from django.shortcuts import render, redirect
 # Create your views here.
 # Our views page actually shows what the consumer is viewing
 # a pretty convienient name
+#Idk if I should use the 'gtMovies/index'or 'home/index' here, 
+#so ima use gtMoives for now 
 def index(request):
-    return HttpResponse("Hello, world. You're at the gtMovies index.")
+    return render(request, 'gtMovies/index.html')
 
-
+def about(request):
+    return render(request, 'gtMovies/about.html')
 
 
 def register(request):
@@ -24,11 +27,6 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'gtMovies/register.html', {'form': form})
-
-
-
-
-
 
 def user_login(request):
     if request.method == "POST":
@@ -45,4 +43,3 @@ def user_login(request):
 def logout_view(request):
     logout(request)
     return redirect('login')  # Redirect to login page
-
