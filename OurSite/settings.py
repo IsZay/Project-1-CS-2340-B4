@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gtMovies.apps.GtmoviesConfig',
+    'home',
+    'accounts',
+    'movies'
     # 'django.contrib.auth.models' brakes the code as well
-    # 'gtMovies' brakes the code
+    # 'django.contrib.auth.models' brakes the code as well
+    # 'accounts' brakes the code
 ]
 
 MIDDLEWARE = [
@@ -57,8 +61,10 @@ ROOT_URLCONF = 'OurSite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS':
+        # may have to add [BASE_DIR / 'templates'], back
+        [os.path.join(BASE_DIR, 'OurSite/templates')],
+        #[BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -114,7 +120,7 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 # python manage.py migrate
 # python manage.py runserver
 #
-# Okay now after doing all of that, it turns out I have two gtMovies/ urls!
+# Okay now after doing all of that, it turns out I have two accounts/ urls!
 # I bet that is what I have to change in url really fast
 # I hope this works
 
@@ -140,9 +146,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'OurSite/static',
+]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
