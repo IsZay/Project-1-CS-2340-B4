@@ -19,11 +19,14 @@ from django.urls import path,include
 
 
 urlpatterns = [
-    path('', include('gtMovies.urls')), # all of the urls in gtMovies.urls are in our entire website
-    # gtMovies is just an app within our website
-    path('admin/', admin.site.urls), #the og admin site
-    # path('gtMovies/', include('gtMovies.urls')),
-    
+    path('', include('home.urls')),
+    path("accounts/", include("accounts.urls")),  # TODO WHICH ONE
+    # path('accounts/', include(('accounts.urls', 'accounts'), namespace='accounts')),
+
+    # will change this to accounts
+    path('admin/', admin.site.urls),  # the og admin site
+    # path('accounts/', include('accounts.urls')),
+    path('movies/', include('movies.urls')),
 ]
 # added the last one, now it finally broke
 # okay it looks like its working again
