@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # 'django.core.mail.backends.smtp.EmailBackend'
 # 'django.core.mail.backends.console.EmailBackend'
 # Yo this actually printed it to the console!!!
 EMAIL_HOST = 'smtp.gmail.com'
