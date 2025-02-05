@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import PasswordResetView
+from django.urls import reverse_lazy
 
 from django.shortcuts import render, redirect
 
@@ -82,6 +84,41 @@ def signup(request):
             return render(request, 'accounts/signup.html',
                 {'template_data': template_data})
 
+
+# def forgot(request):
+#     template_data = {}
+#     template_data['title'] = 'Forgot'
+#     if request.method == 'GET':
+#         template_data['form'] = CustomUserCreationForm()
+#         return render(request, 'accounts/signup.html',
+#             {'template_data': template_data})
+
+
+
+
+
+
+
+
+
+
+from django.contrib.auth.views import PasswordResetView
+from django.urls import reverse_lazy
+
+
+class ForgotPasswordView(PasswordResetView):
+    template_name = 'accounts/forgot_password.html'  # Use your custom HTML file
+    email_template_name = 'accounts/password_reset_email.html'  # Email template
+    subject_template_name = 'accounts/password_reset_subject.txt'  # Email subject template
+    success_url = reverse_lazy('accounts.password_reset_done')  # Redirect after form submission THIS LINE GIVES AN ERROR
+
+
+#
+#     - `forgot_password.html`: To render the password reset form.
+#     - `password_reset_email.html`: Template for the password reset email.
+#     - `password_reset_done.html`: To show a confirmation message after the form is submitted.
+#     - `password_reset_confirm.html`: To confirm the password reset via a token.
+#     - `password_reset_complete.html`: To notify users once the password has been reset successfully.
 # def register(request):
 #     template_data = {}
 #     template_data['title'] = 'Register'

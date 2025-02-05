@@ -11,6 +11,13 @@ from django.urls import path
 # the second is basically which function it is going to use from views.py
 # the last is basically a field that allow us to see where we are in the website
 # name isn't the only thing we can add
+from django.contrib.auth.views import (
+    PasswordResetDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView,
+)
+from .views import ForgotPasswordView
+
 
 
 urlpatterns = [
@@ -22,4 +29,18 @@ urlpatterns = [
     path('login/', views.login, name='accounts.login'),
     path('logout/', views.logout, name='accounts.logout'),
 
+    # path('forgot/', views.forgot, name='accounts.forgot'),
+
+    path('password_reset/', ForgotPasswordView.as_view(), name='accounts.password_reset'),
+    path('password_reset/done/', PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'),
+         name='accounts.password_reset_done'),
+    path('reset/<uidb64>/<token>/',
+         PasswordResetConfirmView.as_view(template_name='accounts/password_reset_confirm.html'),
+         name='accounts.password_reset_confirm'), #TODO worked without accounts. in front
+    path('reset/done/', PasswordResetCompleteView.as_view(template_name='accounts/password_reset_complete.html'),
+         name='accounts.password_reset_complete'), #TODO worked without accounts. in front
 ]
+
+
+
+
