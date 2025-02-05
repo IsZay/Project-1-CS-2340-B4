@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,6 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-veu2jio+auxf&i+$u&u(emzd^q10t^f+p^r0z@c3h53uz_dfv%'
+# SECRET_KEY = config('SECRET_KEY', default='unsafe-secret-key')
+# DEBUG = config('DEBUG', default=True, cast=bool)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,15 +35,47 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # 'django.core.mail.backends.smtp.EmailBackend'
-# 'django.core.mail.backends.console.EmailBackend'
-# Yo this actually printed it to the console!!!
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'arkpianist3@gmail.com'  # Replace with your email
-EMAIL_HOST_PASSWORD = 'GETGOOGLEPASSKEYTHINGWHYSODIFFICULT'  # Replace with your email password
-#It works when you add your actual email and passkey here, but thats not very useful or scalable
+#Final time
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Gmail SMTP server
+EMAIL_PORT = 587  # Use port 587 for secure connections (TLS)
+EMAIL_USE_TLS = True  # Mandatory for Outlook and Gmail
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  # Your Outlook email address
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # App password for Outlook
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)  # Default "from" email
+
+
+# # Dynamic email configuration based on environment variables
+# EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')  # Default to Gmail
+# EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))  # Default to TLS (587)
+# EMAIL_USE_TLS = bool(int(os.getenv('EMAIL_USE_TLS', 1)))  # Use TLS by default
+# EMAIL_USE_SSL = bool(int(os.getenv('EMAIL_USE_SSL', 0)))  # Disabled by default
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')  # To be dynamically set
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')  # To be dynamically set
+# DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'webmaster@localhost')  # From address
+# #
+
+
+
+# Email-related settings
+# EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')  # Default to Gmail
+# EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+# EMAIL_USE_SSL = config('EMAIL_USE_SSL', default=False, cast=bool)
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='your-email@example.com')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='password')
+# THIS CODE ABOVE IS more recent BUT I DON't Think its what I want idk tho
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # 'django.core.mail.backends.smtp.EmailBackend'
+# # 'django.core.mail.backends.console.EmailBackend'
+# # Yo this actually printed it to the console!!!
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'arkpianist3@gmail.com'  # Replace with your email
+# EMAIL_HOST_PASSWORD = 'GETGOOGLEPASSKEYTHINGWHYSODIFFICULT'  # Replace with your email password
+# #It works when you add your actual email and passkey here, but thats not very useful or scalable
 
 
 INSTALLED_APPS = [

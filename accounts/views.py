@@ -113,6 +113,29 @@ class ForgotPasswordView(PasswordResetView):
     success_url = reverse_lazy('accounts.password_reset_done')  # Redirect after form submission THIS LINE GIVES AN ERROR
 
 
+
+
+# views.py (Temporary testing view)
+# Quick way to send emails to yourself I think with this form
+
+from django.core.mail import send_mail
+from django.http import HttpResponse
+
+
+def send_test_email(request):
+    try:
+        send_mail(
+            subject='Test Email from Django',
+            message='This is a test email.',
+            from_email=None,  # Defaults to DEFAULT_FROM_EMAIL in settings.py
+            recipient_list=['falsebooks3@gmail.com'],  # Replace with your recipient's email
+            fail_silently=False,
+        )
+        return HttpResponse("Test email sent successfully.")
+    except Exception as e:
+        return HttpResponse(f"Failed to send email: {e}")
+
+
 #
 #     - `forgot_password.html`: To render the password reset form.
 #     - `password_reset_email.html`: Template for the password reset email.

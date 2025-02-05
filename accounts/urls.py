@@ -39,6 +39,8 @@ urlpatterns = [
          name='accounts.password_reset_confirm'), #TODO worked without accounts. in front
     path('reset/done/', PasswordResetCompleteView.as_view(template_name='accounts/password_reset_complete.html'),
          name='accounts.password_reset_complete'), #TODO worked without accounts. in front
+    path('send-test-email/', views.send_test_email, name='send_test_email')
+
 ]
 # Now I just need to give the ability for user's to access to there own emails!
 
