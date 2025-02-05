@@ -31,11 +31,14 @@ ALLOWED_HOSTS = []
 
 # Application definition
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# 'django.core.mail.backends.console.EmailBackend'
+# Yo this actually printed it to the console!!!
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = '<your-email@gmail.com>'  # Replace with your email
-EMAIL_HOST_PASSWORD = '<your-email-password>'  # Replace with your email password
+EMAIL_HOST_USER = 'arkpianist3@gmail.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'GETGOOGLEPASSKEYTHINGWHYSODIFFICULT'  # Replace with your email password
+#It works when you add your actual email and passkey here, but thats not very useful or scalable
 
 
 INSTALLED_APPS = [
