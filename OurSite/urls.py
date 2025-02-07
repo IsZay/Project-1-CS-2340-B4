@@ -30,7 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),  # the og admin site
     # path('accounts/', include('accounts.urls')),
     path('movies/', include('movies.urls')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # added the last one, now it finally broke
 # okay it looks like its working again
 

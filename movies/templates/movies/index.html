@@ -1,4 +1,6 @@
 
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 <div class="p-3">
@@ -31,7 +33,11 @@
       {% for movie in template_data.movies %}
       <div class="col-md-4 col-lg-3 mb-2">
         <div class="p-2 card align-items-center pt-4">
-          <img src="{{ movie.image.url }}" class="card-img-top rounded img-card-200">
+          {% if movie.image %}
+  <img src="{{ movie.image.url }}" class="card-img-top rounded img-card-200">
+{% else %}
+  <img src="{% static 'images/default-movie.jpg' %}" class="card-img-top rounded img-card-200">
+{% endif %}
           <div class="card-body text-center">
             <a href="{% url 'movies.show' id=movie.id %}"class="btn bg-dark text-white"> 
                 <p>{{ movie.title }}</p>
@@ -45,3 +51,4 @@
     </div>
   </div>
 </div>
+{% endblock content %}
