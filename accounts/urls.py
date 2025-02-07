@@ -31,11 +31,11 @@ urlpatterns = [
 
     # path('forgot/', views.forgot, name='accounts.forgot'),
 
-    path('password_reset/', ForgotPasswordView.as_view(), name='accounts.password_reset'),
-    path('password_reset/done/', PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'),
+    path('password_reset/', ForgotPasswordView.as_view(), name='accounts.password_reset'), # Enter your email
+    path('password_reset/done/', PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'), # If real email, sent mail
          name='accounts.password_reset_done'),
     path('reset/<uidb64>/<token>/',
-         PasswordResetConfirmView.as_view(template_name='accounts/password_reset_confirm.html'),
+         PasswordResetConfirmView.as_view(template_name='accounts/password_reset_confirm.html'), # Have not seen this screen before
          name='accounts.password_reset_confirm'), #TODO worked without accounts. in front
     path('reset/done/', PasswordResetCompleteView.as_view(template_name='accounts/password_reset_complete.html'),
          name='accounts.password_reset_complete'), #TODO worked without accounts. in front
