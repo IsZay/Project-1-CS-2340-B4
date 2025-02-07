@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
 from django.urls import reverse_lazy
 
 from django.shortcuts import render, redirect
@@ -117,6 +117,9 @@ class ForgotPasswordView(PasswordResetView):
 from django.contrib.auth.views import PasswordResetCompleteView
 from django.urls import reverse_lazy
 
+class ResetConfirm(PasswordResetConfirmView):
+    template_name = 'accounts/password_reset_confirm.html'
+    success_url = reverse_lazy('accounts.password_reset_complete')
 
 class ResetComplete(PasswordResetCompleteView):
     # Specify the template to display the success message

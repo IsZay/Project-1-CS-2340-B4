@@ -16,7 +16,7 @@ from django.contrib.auth.views import (
     PasswordResetConfirmView,
     PasswordResetCompleteView,
 )
-from .views import ForgotPasswordView
+from .views import ForgotPasswordView, ResetConfirm
 from .views import ResetComplete
 
 
@@ -35,7 +35,7 @@ urlpatterns = [
     path('password_reset/done/', PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'), # If real email, sent mail. Now you can go back to home page
          name='accounts.password_reset_done'),
     path('reset/<uidb64>/<token>/',
-         PasswordResetConfirmView.as_view(template_name='accounts/password_reset_confirm.html', success_url='accounts.password_reset_confirm'), # It starts as a long hex link that verifies who the person who clicked it is. Then once it identifies you, you can change your password
+         ResetConfirm.as_view(), # It starts as a long hex link that verifies who the person who clicked it is. Then once it identifies you, you can change your password
          name='accounts.password_reset_confirm'), #YESSSSSSSSSSS THAT DID IT! CHANGE success_url !!!!!!!!!!
 
     path('reset/done/',  ResetComplete.as_view(), name='accounts.password_reset_complete'), #pytting include('django.contrib.auth.urls') in 2nd spot also works
