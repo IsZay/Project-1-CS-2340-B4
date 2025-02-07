@@ -112,6 +112,7 @@ class ForgotPasswordView(PasswordResetView):
     email_template_name = 'accounts/password_reset_email.html'  # Email template
     subject_template_name = 'accounts/password_reset_subject.txt'  # Email subject template
     success_url = reverse_lazy('accounts.password_reset_done')  # Redirect after form submission to "Email sent, go back to home page"
+    # used to give an error, not anymore
 
 from django.contrib.auth.views import PasswordResetCompleteView
 from django.urls import reverse_lazy
@@ -120,13 +121,28 @@ from django.urls import reverse_lazy
 class ResetComplete(PasswordResetCompleteView):
     # Specify the template to display the success message
     template_name = 'accounts/password_reset_complete.html'
-    success_url = reverse_lazy('accounts.login')
+    # success_url = reverse_lazy('accounts.login')
+
+
+    # ERROR IS COMING FROM
+    # C:\Users\isaia\Documents\All_GaTech_Stuff\Spring_2025\CS_2340\Project_1\.venv\Lib\site-packages\django\contrib\auth\views.py
+    # @method_decorator(login_not_required, name="dispatch")
+    # class PasswordResetConfirmView(PasswordContextMixin, FormView):
+    #     form_class = SetPasswordForm
+    #     post_reset_login = False
+    #     post_reset_login_backend = None
+    #     reset_url_token = "set-password"
+    #     success_url = reverse_lazy("password_reset_complete") # TODO THIS LINE IS AN ERROR!!!!!!!!!!!!!!!!!!!
+    #     template_name = "registration/password_reset_confirm.html"
+    #     title = _("Enter new password")
+    #     token_generator = default_token_generator
+    #
 
     # Optionally override the success redirection
-    def get_success_url(self):
-        # Change reverse_lazy to use a custom URL or any other logic
-        # Example: Redirect to 'accounts.login' instead of the default
-        return reverse_lazy('accounts.login')
+    # def get_success_url(self):
+    #     # Change reverse_lazy to use a custom URL or any other logic
+    #     # Example: Redirect to 'accounts.login' instead of the default
+    #     return reverse_lazy('accounts.login')
 
 
 # views.py (Temporary testing view)
