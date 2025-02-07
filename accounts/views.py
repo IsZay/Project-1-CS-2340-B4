@@ -103,6 +103,7 @@ def signup(request):
 
 
 from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.forms import PasswordResetForm
 from django.urls import reverse_lazy
 
 
@@ -110,9 +111,22 @@ class ForgotPasswordView(PasswordResetView):
     template_name = 'accounts/forgot_password.html'  # Use your custom HTML file
     email_template_name = 'accounts/password_reset_email.html'  # Email template
     subject_template_name = 'accounts/password_reset_subject.txt'  # Email subject template
-    success_url = reverse_lazy('accounts.password_reset_done')  # Redirect after form submission THIS LINE GIVES AN ERROR
+    success_url = reverse_lazy('accounts.password_reset_done')  # Redirect after form submission to "Email sent, go back to home page"
+
+from django.contrib.auth.views import PasswordResetCompleteView
+from django.urls import reverse_lazy
 
 
+class ResetComplete(PasswordResetCompleteView):
+    # Specify the template to display the success message
+    template_name = 'accounts/password_reset_complete.html'
+    success_url = reverse_lazy('accounts.login')
+
+    # Optionally override the success redirection
+    def get_success_url(self):
+        # Change reverse_lazy to use a custom URL or any other logic
+        # Example: Redirect to 'accounts.login' instead of the default
+        return reverse_lazy('accounts.login')
 
 
 # views.py (Temporary testing view)

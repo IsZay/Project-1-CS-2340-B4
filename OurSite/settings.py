@@ -37,7 +37,7 @@ ALLOWED_HOSTS = []
 # Application definition
 #Final time
 # settings.py
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Gmail SMTP server
 EMAIL_PORT = 587  # Use port 587 for secure connections (TLS)
 EMAIL_USE_TLS = True  # Mandatory for Outlook and Gmail

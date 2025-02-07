@@ -2,7 +2,7 @@
 from . import views
 
 
-from django.urls import path
+from django.urls import path, include
 # from .views import user_login, signup
 # from django.contrib.auth.views import LogoutView
 
@@ -17,7 +17,7 @@ from django.contrib.auth.views import (
     PasswordResetCompleteView,
 )
 from .views import ForgotPasswordView
-
+from .views import ResetComplete
 
 
 urlpatterns = [
@@ -31,16 +31,26 @@ urlpatterns = [
 
     # path('forgot/', views.forgot, name='accounts.forgot'),
 
-    path('password_reset/', ForgotPasswordView.as_view(), name='accounts.password_reset'), # Enter your email
-    path('password_reset/done/', PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'), # If real email, sent mail
+    path('password_reset/', ForgotPasswordView.as_view(), name='accounts.password_reset'), # Enter your email TODO I CHANGED FROM ForgotPasswordView.as_view()
+    path('password_reset/done/', PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'), # If real email, sent mail. Now you can go back to home page
          name='accounts.password_reset_done'),
     path('reset/<uidb64>/<token>/',
-         PasswordResetConfirmView.as_view(template_name='accounts/password_reset_confirm.html'), # Have not seen this screen before
-         name='accounts.password_reset_confirm'), #TODO worked without accounts. in front
-    path('reset/done/', PasswordResetCompleteView.as_view(template_name='accounts/password_reset_complete.html'),
-         name='accounts.password_reset_complete'), #TODO worked without accounts. in front
-    path('send-test-email/', views.send_test_email, name='send_test_email')
+         PasswordResetConfirmView.as_view(template_name='accounts/password_reset_confirm.html'), # It starts as a long hex link that verifies who the person who clicked it is. Then once it identifies you, you can change your password
+         name='accounts.password_reset_confirm'),
 
+    path('reset/done/', ResetComplete.as_view(), name='accounts.password_reset_complete'),
+    # path('reset/done/', PasswordResetCompleteView.as_view(),
+    #      name='accounts.password_reset_complete'), # going to delete  template_name='accounts/password_reset_complete.html'
+    # It was inside PasswordResetComlpeteView.as_view(template_name = 'yadda')
+    # to see what it should look like
+    # or I should overload it, saying ResetComplete.as_view() then
+    # in views.py I should make a function called ResetComplete(PasswordResetCompleteView)
+    # add in the 4 different fields, and successfully define success_url
+    # with the reverse lazy. Maybe
+    path('send-test-email/', views.send_test_email, name='send_test_email'),
+
+
+path('accounts/', include('django.contrib.auth.urls')),
 ]
 # Now I just need to give the ability for user's to access to there own emails!
 
