@@ -14,7 +14,6 @@
   max-height: 400px;
 }
 
-
 .navbar a.nav-link {
   color: #FFFEF6 !important;
 }
@@ -22,12 +21,11 @@
   background-color: #2E2E2E !important;
 }
 
-
 .ms-footer {
-  background-color: #202020;
+  background-color: #B3A369;
 }
 .ms-footer p {
-  color: #7F7F7F;
+  color: #262626;
   font-size: 13px;
 }
 .ms-footer a:hover {
@@ -35,8 +33,8 @@
   text-decoration: none;
 }
 .ms-footer-bottom span{
-  font-size: 13px;
-  line-height: 38px;
+  font-size: 20px;
+  line-height: 300px;
 }
 .ms-footer-bottom a {
   color: #6ab43e;
