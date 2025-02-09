@@ -1,21 +1,21 @@
 /* Background Section */
 .bg-index {
   background: navy url("/static/img/BuzzInChairs.jpg") no-repeat fixed;
-  background-size: cover; /* Ensures the image covers the entire section */
-  background-position: center; /* Centers the image */
-  height: 400px; /* Adjust height as needed */
+  background-size: cover; 
+  background-position: center; 
+  height: 400px; 
   display: flex;
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
-  color: white; /* Ensure text is visible */
+  align-items: center; 
+  justify-content: center; 
+  color: white; 
 }
 
-/* Main Content Margin */
+
 .container.mt-4 {
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 20px; 
 }
 
-/* Footer Styles */
+
 .ms-footer {
   background-color: #B3A369;
 }
@@ -40,8 +40,4 @@
 }
 .ms-footer-bottom a:hover {
   color: #fff;
-}
-
-.blue-background {
-  background-color: #001127;
 }
