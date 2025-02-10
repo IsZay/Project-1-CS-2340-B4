@@ -28,6 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Gmail SMTP server
+EMAIL_PORT = 587  # Use port 587 for secure connections (TLS)
+EMAIL_USE_TLS = True  # Mandatory for Outlook and Gmail
+EMAIL_HOST_USER = 'arkpianist3@gmail.com' # os.getenv('EMAIL_HOST_USER')  # Your Outlook email address
+EMAIL_HOST_PASSWORD = 'ryzlfdgbscdejkfu' # os.getenv('EMAIL_HOST_PASSWORD')  # App password for Outlook
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER # os.getenv('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)  # Default "from" email
+
 
 # Application definition
 
