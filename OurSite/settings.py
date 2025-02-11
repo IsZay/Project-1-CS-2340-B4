@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'accounts',
-    'movies'
+    'movies',
+    'cart',
     # 'django.contrib.auth.models' brakes the code as well
     # 'django.contrib.auth.models' brakes the code as well
     # 'accounts' brakes the code

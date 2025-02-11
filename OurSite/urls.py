@@ -30,6 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),  # the og admin site
     # path('accounts/', include('accounts.urls')),
     path('movies/', include('movies.urls')),
+path('cart/', include('cart.urls')),
 ]
 # added the last one, now it finally broke
 # okay it looks like its working again
