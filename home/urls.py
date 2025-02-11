@@ -5,5 +5,5 @@ import home
 
 urlpatterns = [
     path('', views.index, name='home.index'),
-path('about/', views.about, name='home.about'), #TODO MAY SWITCH YOU TO OURSITE.urls
+    path('about/', views.about, name='home.about'), #TODO MAY SWITCH YOU TO OURSITE.urls
 ]
