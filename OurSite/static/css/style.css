@@ -11,8 +11,9 @@
     object-fit: cover; /* Prevents squishing/stretching */
 }
 
-  .img-card-400 {
-    width: 300px;
-      height: 400px;
-    max-height: 400px;
-  }  
+.img-card-400 {
+    width: 100%; /* Makes width responsive */
+    height: auto; /* Ensures aspect ratio is kept */
+    max-height: 300px; /* Adjust height for taller images */
+    object-fit: cover; /* Prevents squishing/stretching */
+}
