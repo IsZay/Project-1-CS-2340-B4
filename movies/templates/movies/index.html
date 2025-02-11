@@ -1,32 +1,30 @@
-
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<div class="p-3">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col mx-auto mb-3">
-        <h2>List of Movies</h2>
-        <hr />
-        <p class="card-text">
+  <div class="p-3">
+    <div class="container">
+      <div class="row mt-3">
+        <div class="col mx-auto mb-3">
+          <h2 style="color: white;">List of Movies</h2>
+          <hr />
+          <p class="card-text">
             <form method="GET">
               <div class="row">
                 <div class="col-auto">
                   <div class="input-group col-auto">
-                    <div class="input-group-text">
-                      Search</div>
-                    <input type="text" class="form-control"
-                      name="search">
+                    <div class="input-group-text">Search</div>
+                    <input type="text" class="form-control" name="search">
                   </div>
                 </div>
                 <div class="col-auto">
-                  <button class="btn bg-dark text-white"
-                    type="submit">Search</button>
+                  <button class="btn bg-dark text-white" type="submit">Search</button>
                 </div>
               </div>
             </form>
           </p>
+<<<<<<< HEAD
+=======
       </div>
     </div>
     <div class="row">
@@ -45,10 +43,25 @@
             <p>{{ movie.description }}</p>
             <p><strong>Price: ${{ movie.price }}</strong></p>
           </div>
+>>>>>>> new_testBranch
         </div>
       </div>
-      {% endfor %}
+      <div class="row">
+        {% for movie in template_data.movies %}
+        <div class="col-md-4 col-lg-3 mb-2">
+          <div class="p-2 card align-items-center pt-4">
+            <img src="{{ movie.image.url }}" class="card-img-top rounded img-card-200">
+            <div class="card-body text-center">
+              <a href="{% url 'movies.show' id=movie.id %}" class="btn bg-dark text-white">
+                <p>{{ movie.title }}</p>
+              </a>
+              <p>{{ movie.description }}</p>
+              <p><strong>Price: ${{ movie.price }}</strong></p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
-</div>
 {% endblock content %}
