@@ -37,7 +37,9 @@
           <div class="card-body text-center">
             <h5 class="card-title">{{ movie.title }}</h5>
             <p class="card-text">{{ movie.description }}</p>
-            <p><strong>Price: ${{ movie.price }}</strong></p>
+            <p><strong>Price:</strong> ${{ movie.price }}</p>
+            <p><strong>Intended Audience:</strong> {{ movie.intended_audience }}</p>  <!-- ✅ Added -->
+            <p><strong>Rating:</strong> {{ movie.rating }}/10</p>  <!-- ✅ Added -->
             <a href="{% url 'movies.show' id=movie.id %}" class="btn bg-dark text-white">View Details</a>
           </div>
         </div>
