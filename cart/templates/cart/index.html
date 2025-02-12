@@ -25,11 +25,9 @@
           {% for movie in template_data.movies_in_cart %}
           <tr>
             <td>{{ movie.id }}</td>
-            <td>{{ movie.name }}</td>
+            <td>{{ movie.title }}</td>
             <td>${{ movie.price }}</td>
-            <td>{{
-              request.session.cart|get_quantity:movie.id }}
-            </td>
+            <td>{{ request.session.cart|get_quantity:movie.id }} </td>
           </tr>
           {% endfor %}
         </tbody>

@@ -27,15 +27,6 @@ def add(request, id):
     request.session['cart'] = cart
     return redirect('cart.index')
 
-
-
-def add_to_cart(request, id):
-    get_object_or_404(Movie, id=id)
-    cart = request.session.get('cart', {})
-    cart[id] = request.POST['quantity']
-    request.session['cart'] = cart
-    return redirect('cart.index')
-
 def clear(request):
     request.session['cart'] = {}
     return redirect('cart.index')
