@@ -22,13 +22,9 @@
     <a class="nav-link"
               href="{% url 'accounts.login' %}">Login</a>
     <a class="nav-link" href="{% url 'accounts.signup' %}">Sign Up</a>
-    <a class="nav-link"
-              href="{% url 'cart.index' %}">Cart</a>
-<!--    Should it go here-->
     {% endif %}
     <a class="nav-link"
               href="{% url 'cart.index' %}">Cart</a>
-<!--    or here??-->
     <link rel="stylesheet" type="text/css"
           href="{% static 'css/style.css' %}">
     <meta name="viewport" content="width=device-width,
