@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from movies.models import Movie, Review
 from django.contrib.auth.decorators import login_required
 
+
 def index(request):
     search_term = request.GET.get('search')
     if search_term:
