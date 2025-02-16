@@ -10,68 +10,75 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #B3A369; /* Dijon Mustard Yellow */
-        }
-        .container {
-            text-align: center;
-            max-width: 600px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 100px;
-        }
+            body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("{% static 'img/NetflixBack.jpg' %}") no-repeat center center fixed;
+        background-size: cover; /* Ensures the image covers the screen */
+    }
+
+    .content-container {
+    text-align: center;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.60);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 100px auto 0 auto;
+
+}
         h1 {
             font-size: 2.5em;
-            color: #001F3F; /* Deep Navy Blue */
+            margin: 1px 0;
+            color: white; /* Deep Navy Blue */
         }
         p {
             font-size: 1.2em;
             line-height: 1.6;
-            color: #001F3F; /* Deep Navy Blue */
+            color: white; /* Deep Navy Blue */
         }
     </style>
 </head>
-<body>
+<body class="about-page">
     <!-- Header -->
-    <nav class="p-3 navbar navbar-dark bg-dark navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="{% url 'home.index' %}">
-            <img src="{% static 'img/logo.jpg' %}" alt="logo" height="70" style="border-radius: 15px;">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ms-auto navbar-ml" style="color: #001127;">
-              <a class="nav-link" href="{% url 'home.about' %}" style="color: black;">About</a>
-              <div class="vr bg-black mx-2 d-none d-lg-block"></div>
-              <a class="nav-link" href="{% url 'movies.index' %}" style="color: black;">Movies</a>
-              {% if user.is_authenticated %}
-              <a class="nav-link" href="{% url 'accounts.orders' %}" style="color: black;">Orders</a>
-              <a class="nav-link" href="{% url 'accounts.logout' %}" style="color: black;">Logout ({{ user.username }})</a>
-              {% else %}
-              <a class="nav-link" href="{% url 'accounts.login' %}" style="color: black;">Login</a>
-              <a class="nav-link" href="{% url 'accounts.signup' %}" style="color: black;">Sign Up</a>
-              {% endif %}
-              <a class="nav-link" href="{% url 'cart.index' %}" style="color: black;">Cart</a>
-            </div>
-          </div>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home.index' %}">
+        <img src="{% static 'img/logo.jpg' %}" alt="logo" height="70" style="border-radius: 15px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto navbar-ml" style="color: #001127;">
+          <a class="nav-link" href="{% url 'home.about' %}" style="color: black;">About</a>
+          <div class="vr bg-black mx-2 d-none d-lg-block"></div>
+          <a class="nav-link" href="{% url 'movies.index' %}" style="color: black;">Movies</a>
+          {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'accounts.orders' %}" style="color: black;">Orders</a>
+          <a class="nav-link" href="{% url 'accounts.logout' %}" style="color: black;">Logout ({{ user.username }})</a>
+          {% else %}
+          <a class="nav-link" href="{% url 'accounts.login' %}" style="color: black;">Login</a>
+          <a class="nav-link" href="{% url 'accounts.signup' %}" style="color: black;">Sign Up</a>
+          {% endif %}
+          <a class="nav-link" href="{% url 'cart.index' %}" style="color: black;">Cart</a>
         </div>
-    </nav>
-    <!-- End Header -->
-
-    <div class="container">
-        <h1>About GTMovies</h1>
-        <p>As Georgia Tech students, we understand the importance of balancing work and relaxation.
-           With our busy schedules and academic stress, finding time to unwind is essential.
-           GTMovies provides a space where students can <strong>view</strong>, <strong>rent</strong>,
-           and <strong>review</strong> movies, creating a shared entertainment experience
-           within the Georgia Tech community.</p>
+      </div>
     </div>
+</nav>
+<!-- End Header -->
+
+<!-- Change .container to .content-container for main content -->
+<div class="content-container">
+    <h1>About GTMovies</h1>
+    <p>As Georgia Tech students, we understand the importance of balancing work and relaxation.
+       With our busy schedules and academic stress, finding time to unwind is essential.
+       GTMovies provides a space where students can <strong>view</strong>, <strong>rent</strong>,
+       and <strong>review</strong> movies, creating a shared entertainment experience
+       within the Georgia Tech community.</p>
+</div>
+
 </body>
 </html>

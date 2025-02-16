@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
   {% load static %}
+  <style>
+    h1 {
+      font-size: larger;
+    }
+    p {
+      font-size: x-large;
+    }
+  </style>
   <head>
     <title>{{ template_data.title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -12,7 +20,7 @@
   </head>
   <body>
     <!-- Header -->
-    <nav class="p-3 navbar navbar-dark bg-dark navbar-expand-lg">
+    <nav class="p-3 navbar navbar-dark bg-dark navbar-expand-lg navbar-custom">
       <div class="container">
         <a class="navbar-brand" href="{% url 'home.index' %}">
           <img src="{% static 'img/logo.jpg' %}" alt="logo" height="70" style="border-radius: 15px;">
@@ -45,7 +53,7 @@
     <!-- Background Section -->
     <div class="bg-index">
       <div class="container text-center text-white py-5">
-        <h1>Welcome to Movies Store</h1>
+        <h1>Welcome to the GTMovies Store!</h1>
         <p>Your premier destination for cinematic adventures!</p>
       </div>
     </div>
