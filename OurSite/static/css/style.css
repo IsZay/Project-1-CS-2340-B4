@@ -47,8 +47,8 @@
   min-height: auto !important;
 }
 .navbar-brand img {
-  height: 60px;  /* Reduce this value as needed */
-  margin-top: 0; /* Ensure there's no extra margin */
+  height: 60px;  
+  margin-top: 0; 
 }
 .navbar-custom .nav-link {
   color: white !important;
@@ -56,20 +56,20 @@
 
 .movie-card {
   width: 100%;
-  height: 250px;      /* Reduced overall height */
+  height: 250px;
   overflow: hidden;    
   display: flex;
   flex-direction: column;
 }
 
-/* For the image at the top of the card */
+
 .movie-card .card-img-top {
-  width: 100%;        /* Use full width of the card */
-  height: 150px;      /* Reduced image height */
-  object-fit: cover;  /* Crop and fill if necessary */
+  width: 100%;       
+  height: 150px;      
+  object-fit: cover;  
 }
 
-/* Adjust the card body to take up the remaining space */
+
 .movie-card .card-body {
   flex: 1;
   overflow: hidden;
@@ -78,17 +78,23 @@
   justify-content: center;
 }
 
-/* If you're using the .img-card-200 class for your images, update it as well */
+
 .img-card-200 {
-  width: 150px;       /* Reduced width */
-  height: 225px;      /* Reduced height, maintaining a similar aspect ratio */
+  width: 150px;      
+  height: 225px;      
   object-fit: cover;
   display: block;
 }
 .movie-card .card-img-top {
   width: 100%;
-  height: 150px;      /* or your desired height */
-  object-fit: contain; /* shows the full image without cropping */
+  height: 150px;     
+  object-fit: contain; 
+}
+.img-card-400 {
+  width: 400px !important;
+  height: 450px !important;
+  object-fit: contain !important;
+  display: block !important;
 }
 
 
